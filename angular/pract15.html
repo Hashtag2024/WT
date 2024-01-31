@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AngularJS with digest function</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body>
+<h1> Angular JS Demo</h1><br>
+<div ng-app="" ng-init="x='lightgreen'">
+    <select color name ng-model="x">
+        <option>Blue</option>
+        <option>Orange</option>
+        <option>Red</option>
+        <option>Yellow</option>
+    </select>
+    <br>
+    <table bgcolor="{{x}}" width="100px" border="2">
+        <tr>
+            <td>101</td>
+            <td>Ashwin</td>
+            <td>FYMCA</td>
+        </tr>
+        <tr>
+            <td>102</td>
+            <td>Vijay</td>
+            <td>FYMsc</td>
+        </tr>
+        <tr>
+            <td>103</td>
+            <td>Shani</td>
+            <td>FYBCom</td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

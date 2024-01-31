@@ -1,0 +1,52 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+<meta charset="UTF-8"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title> 
+<script src="angular.min.js" ></script> 
+<script> 
+var obj=angular.module("myApp",[]); 
+obj.controller("Democontroller",function($scope) 
+{ 
+$scope.students=[ 
+{pname:"Dell Laptop",brand:"Dell",unit:85000,image:"dell.jpg"}, 
+{pname:"Sony Laptop",brand:"Sony",unit:56000,image:"sony.jpg"}, 
+{pname:"Lenovo Laptop",brand:"Lenovo",unit:75000,image:"lenovo.jpg"} ]; 
+$scope.s1=""; 
+$scope.s2=""; 
+}); 
+</script> 
+</head> 
+<body ng-app="myApp"> 
+<h1>Filter option - Demo4 </h1> 
+<hr> 
+<div ng-controller="Democontroller"> 
+Enter Product Name to search: 
+<input type="text" ng-model="s1"/><br><br> 
+Select Brand to search: 
+<select ng-model="s2"> 
+<option>Dell</option> 
+<option>Sony</option> 
+<option>Lenovo</option> 
+<option value=" ">All courses</option> 
+</select><br><br> 
+<table border="2" width="400px"> 
+<tr> 
+<th colspan="5">Product Details</th> 
+</tr> 
+<tr bgcolor="Skyblue"> 
+<th>Product Name</th>
+<th>Brand</th> 
+<th>Unit Price</th> 
+<th>Picture</th> 
+</tr> 
+<tr bgcolor="Grey" ng-repeat="item in students|filter : {'pname':s1,'brand':s2}"> <td>{{item.pname}}</td> 
+<td>{{item.brand}}</td> 
+<td>{{item.unit}}</td> 
+<td><img border="1" height="90" width="150" src="{{item.image}}"></td> </tr> 
+</table> 
+</div> 
+</body> 
+</html>

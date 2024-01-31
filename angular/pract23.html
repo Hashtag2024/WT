@@ -1,0 +1,53 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+<meta charset="UTF-8"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<title>Document</title> 
+<script src="angular.min.js" ></script> 
+<script> 
+var obj=angular.module("myApp",[]); 
+obj.controller("Democontroller",function($scope) 
+{ 
+$scope.students=[ 
+{sid:1025,sname:"Scott",course:"Angular JS"}, 
+{sid:1026,sname:"Abrons",course:"HTML"}, 
+{sid:1027,sname:"Smith",course:"Jquery"}, 
+{sid:1028,sname:"James",course:"Angular JS"}, 
+{sid:1029,sname:"Adam",course:"Javascript"}, 
+{sid:1030,sname:"Sayali",course:"Javascript"} 
+]; 
+$scope.s1=""; 
+$scope.s2=""; 
+}); 
+</script> 
+</head> 
+<body ng-app="myApp"> 
+<h1>Filter option - Demo4 </h1> 
+<hr> 
+<div ng-controller="Democontroller"> 
+Enter Student Name to search: 
+<input type="text" ng-model="s1"/><br><br> 
+Select course to search:
+<select ng-model="s2"> 
+<option>Angular JS</option> 
+<option>Jquery</option> 
+<option>HTML</option> 
+<option>Javascript</option> 
+<option value=" ">All courses</option> 
+</select><br><br> 
+<table border="2" width="350px"> 
+<tr bgcolor="SkyBlue"> 
+<th>Student ID</th> 
+<th>Student Name</th> 
+<th>Course Name</th> 
+</tr> 
+<tr bgcolor="Grey" ng-repeat="item in students|filter : {'sname':s1,'course':s2}"> <td>{{item.sid}}</td> 
+<td>{{item.sname}}</td> 
+<td>{{item.course}}</td> 
+</tr> 
+</table> 
+</div> 
+</body> 
+</html>

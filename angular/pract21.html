@@ -1,0 +1,39 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+<meta charset="UTF-8"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<title>Practical 23</title> 
+<script src="angular.min.js"></script> 
+<script> 
+var obj=angular.module("myApp",[]); 
+obj.controller("DemoController",function($scope) 
+{ 
+$scope.Students= 
+[ 
+{sid:1025,sname:"scott",course:"AngularJS"}, 
+{sid:1026,sname:"smith",course:"HTML5"}, 
+{sid:1027,sname:"Abrons",course:"JQuery"}, 
+{sid:1028,sname:"james",course:"PHP"}, 
+{sid:1029,sname:"Adam",course:"Javascript"} 
+]; 
+$scope.x=false; 
+}); 
+</script> 
+</head> 
+<body ng-app="myApp"> 
+<h1>Order By Filters-Demo3</h1> 
+<div ng-controller="DemoController"> 
+Descending Order:<input type="checkbox" ng-model="x"/><br></br> <table border="2", width="350px"> 
+<tr bgcolor="skyblue"> 
+<th><a href="" ng-click="x=!x";y="sid">Student ID</a></th>
+<th><a href="" ng-click="x=!x";y="sname">Student Name</a></th> <th><a href="" ng-click="x=!x";y="course">Course Name</a></th> </tr> 
+<tr bgcolor="pink" ng-repeat="item in Students|orderBy:y:x"> <td>{{item.sid}}</td> 
+<td>{{item.sname}}</td> 
+<td>{{item.course}}</td> 
+</tr> 
+</table> 
+</div> 
+</body> 
+</html>

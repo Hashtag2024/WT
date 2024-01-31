@@ -1,0 +1,29 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+<meta charset="UTF-8"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<title>Practical 21</title> 
+<script src="angular.min.js"></script> 
+<script> 
+var obj=angular.module("myApp",[]); 
+obj.controller("EmpController",function($scope) 
+{ 
+$scope.ename="scott"; 
+$scope.job="Manager"; 
+$scope.Sal='2000'; 
+}); 
+</script> 
+</head> 
+<body ng-app="myApp"> 
+<h1>Employee Details-Filters</h1> 
+<div ng-controller="EmpController"> 
+<span> 
+Employee Name:{{ename|uppercase}}<br> 
+Designation:{{job|lowercase}}<br>
+Salary:{{Sal|currency}} 
+</span> 
+</div> 
+</body> 
+</html>

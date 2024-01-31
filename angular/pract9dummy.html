@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html ng-app="myModule">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<script>
+//Create AppModule named as myModule
+var studentApp = angular.module('myModule', []);
+//Create Controller
+studentApp.controller('studentController', function ($scope, $http, $window) {
+//attach orginal student model object
+$scope.abc = function () {
+$window.alert("endgame on");
+};
+$scope.orginalStudent =
+{ firstName:'Alexander', middleName: 'Graham', lastName: 'Bell',
+DOB: new Date('01/31/1997'), gender: 'male',
+trainingType: 'online', maths: 'false', physics: 'true', chemistry: 'false'
+};
+//copy orginalStudent to student. Student will be bind to a form
+$scope.student = angular.copy($scope.orginalStudent);
+//create submitStudentForm() function. This will call when user submits the form
+var onSuccess = function (data, status, headers, config, $window) {
+$window.alert("Student saved successfully");
+};
+$scope.submit = onSuccess;
+$scope.submit = function (data, status, headers, config) {
+$window.alert("Student saved successfully");
+};
+$scope.newSum = function add(firstno, secondno )
+{ var sum = (firstno + secondno)
+$window.alert(sum); return sum;
+}
+var onError = function (data, status, headers, config, $window) {
+$window.alert("Error occured");
+};
+$http.post('/student/submitData', { student: $scope.student })
+//     .success(onSuccess)
+//     .error(onError);
+});
+//create resetForm() function. This will called when reset button is clicked
+$scope.restForm = function
+() {
+//$scope.student = angular.copy($scope.orginalStudent);
+};
+</script>
+<body ng-controller="studentController">
+<h1>Student Information</h1>
+<form ng-submit="submitStudentForm()">
+<label for="firstName">FirstName:</label><br/>
+<input type="text" id="firstName" ng-model="student.firstName" /><br/>
+<label for="middleName">MiddleName:</label><br/>
+<input type="text" id="middleName" ng-model="student.middleName" /><br/>
+<label for="lastName">lastName:</label><br/>
+<input type="text" id="lastName" ng-model="student.lastName" /><br/>
+<label for="dob">DOB</label><br/>
+<input type="date" id="dob" ng-model="student.DOB" /><br/><br/>
+<label for="gender">Gender</label><br/>
+<select id="gender" ng-model="student.gender"><br />
+<option value="male">Male</option>
+<option value="female">Female</option>
+</select><br/><br/>
+<span>Training Type</span><br/>
+<label><input value="online" type="radio" name="training" ng-model="student.trainingType" />Online</label><br/>
+<label><input value="onsite" type="radio" name="training" ng-model="student.trainingType" />Offline</label><br/>
+<span>Subjects</span><br/>
+<label><input type="checkbox" ng-model="student.maths" />Maths </label><br/>
+<label><input type="checkbox" ng-model="student.physics" />Physics</label><br/>
+<label><input type="checkbox" ng-model="student.chemistry" />Chemistry</label><br/>
+<input type="submit" value="Submit" ng-click="abc()" />
+<input type="reset" ng-click="newSum(3,1)" value="Reset" />
+</form>
+</body>
+</html>

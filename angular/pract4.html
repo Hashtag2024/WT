@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script> 
+</head>
+<body ng-app="" ng-init="University={fname:'VIVA',mname:'INSTITUTE of',lname:'TECHNOLOGY'}">
+    <p>
+        My university First Name is <span ng-bind='University.fname'></span> <br>
+        <b>First name</b> {{university.fname}}
+    </p>
+    <p>
+        My university Middle Name is <span ng-bind='University.mname'></span> <br>
+        <b>Middle name</b> {{University.mname}} <br>
+    </p>
+    <p>
+        My university last Name is <span ng-bind='University.lname'></span> <br>
+        <b>Last name</b> {{University.lname}} <br>
+    </p>
+</body>
+</html>

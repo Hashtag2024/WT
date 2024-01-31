@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title></head><body><script text="text/javascript"
+src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+<script text="text/javascript">
+var app = angular.module('MyApp',[])
+app.controller('MyController', function ($scope)
+{
+$scope.IsVisible = false;
+$scope.GenerateTable = function()
+{
+$scope.bankdetail = [
+{Bankname: "SBI", MICRcode: 123456789, IFSCCode:"SBIN001122", address:
+"Pune"},
+{Bankname: "HDFC Bank", MICRcode: 112334455, IFSCCode:"HDFC001122",
+address: "Mumbai" }
+];
+$scope.IsVisible = true;
+};
+});</script>
+<div ng-app="MyApp" ng-controller="MyController">
+<input type="button" value="Generate Table" ng-click="GenerateTable()" /><hr />
+<table cellpadding="0" cellspacing="0" ng-show="IsVisible" border = 1 ><tr>
+<th>Bank Name</th>
+<th>MICR Code</th>
+<th>IFSC Code</th>
+<th>Address</th></tr>
+<tbody ng-repeat="m in bankdetail"> <tr>
+<td>{{m.Bankname}}</td>
+<td>{{m.MICRcode}}</td>
+<td>{{m.IFSCCode}}</td>
+<td>{{m.address}}</td>
+</tr>
+</tbody>
+</table>
+</div>
+</body>
+</html>

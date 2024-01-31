@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>AngularJs</title>
+<script src="angular.min.js"></script>
+<script>
+var obj=angular.module("myApp",[]);
+obj.controller("Productcontroller",function($scope)
+{
+$scope.product=[
+{pid:14589,pname:"Milk",uprice: 200, image:"p1.jpg"},
+{pid:14589,pname:"Eggs",uprice: 300, image:"p2.jpg"},
+{pid:14589,pname:"Curd",uprice: 100, image:"p3.jpg"},
+{pid:14589,pname:"Buscuits",uprice:18200, image:"p4.jpg"},
+{pid:14589,pname:"Chips",uprice: 20, image: "p5.jpg"
+}];
+});
+</script>
+</head>
+<body ng-app="myApp">
+<h1>Product Details</h1>
+<hr>
+<div ng-controller="Productcontroller">
+<div style="text-align: center; float: left; padding: 3px; margin: 5px;
+border: 2px solid blue; height: 150px; width: 200px;" ng-repeat="item in product"> <span><u>{{item.pname}}</u></span><br>
+<img border="1" height="90" width="150" src="{{item.image}}">
+<br>
+Product ID: {{item.pid}} <br>
+Price:<b>INR{{item.uprice}}.00</b>
+</div>
+</div>
+</body>
+</html>

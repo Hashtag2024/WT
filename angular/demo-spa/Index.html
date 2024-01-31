@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body ng-app="ngRoutingDemo">
+<h1>Angular Routing Demo</h1>
+<div ng-view>
+</div>
+<script>
+ var app = angular.module('ngRoutingDemo',
+['ngRoute']);
+ app.config(function ($routeProvider) {
+
+ $routeProvider.when('/', {
+ templateUrl: '/login.html',
+ controller: 'loginController'
+ }).when('/student', {
+ templateUrl: '/student.html',
+ controller: 'studentController'
+ }).otherwise({
+ redirectTo: "/"
+ });
+ app.controller("loginController", function ($scope,
+$location) {
+
+ $scope.authenticate = function (username) {
+ // write authentication code here..
+ $location.path('/student/' + username)
+ };
+ });
+ app.controller("studentController", function ($scope,
+$routeParams) {
+ $scope.username = $routeParams.username;
+ });
+});
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<script
+src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+<style>
+.redcolor {
+width: 100px;
+height: 100px;
+background-color: red;
+padding:2px 2px 2px 2px;
+}
+.yellowcolor {
+width: 100px;
+height: 100px;
+background-color: yellow;
+padding:2px 2px 2px 2px;
+}
+</style>
+</head>
+<body ng-app="">
+<div ng-class="{redcolor: enter, yellowcolor: leave}" ng-mouseenter="enter=true;leave=false;"
+ng-mouseleave="leave=true;enter=false">
+Mouse <span ng-show="enter">Enter</span> <span ng-show="leave">Leave</span>
+</div>
+</body>
+</html>

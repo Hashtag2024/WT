@@ -1,0 +1,26 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+<meta charset="UTF-8"> 
+<meta http-equiv="X-UA-Compatible" 
+content="IE=edge"> 
+<meta name="viewport" content="width=device-width,  initial-scale=1.0"> 
+<title>Document</title> 
+<script 
+src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script> 
+</head> 
+<body ng-app="" ng-init="fname='Alexander';lname='Bell'"> {{"Alexander Bell"}} <br> 
+    <p>
+        My First name is <span ng-bind=fname></span> <br>
+
+        <b>First name</b> {{fname}}
+    </p>
+    <p>
+        My Last name is <span ng-bind=lname></span> <br>
+        <b>last name</b> {{fname}}
+    </p>
+    <p>
+        My Full Name is {{fname+' '+lname}}
+    </p>
+</body> 
+</html>

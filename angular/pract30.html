@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+<script>
+var obj = angular.module("myApp", []);
+obj.controller("Democontroller", function ($scope) {
+$scope.x = "";
+$scope.y = "";
+$scope.message = "";
+$scope.str = "Black";
+$scope.result = function (arg) {
+$scope.message = parseInt($scope.x) + parseInt($scope.y);
+$scope.str = "Red"
+}
+$scope.result1 = function (arg) {
+$scope.message = parseInt($scope.x) - parseInt($scope.y);
+$scope.str = "Green"
+}
+$scope.result2 = function (arg) {
+$scope.message = parseInt($scope.x) * parseInt($scope.y);
+$scope.str = "Blue"
+}
+});
+</script>
+</head>
+<body ng-app="myApp">
+<h1>AngularJS Events Demonstartion</h1>
+<div ng-controller="Democontroller">
+Enter First Number:<input type="text" ng-model="x" /><br><br>
+Enter Second Number:<input type="text" ng-model="y" /><br><br>
+<input type="button" ng-click="result()" value="Sum">
+<input type="button" ng-click="result1()" value="Minus">
+<input type="button" ng-click="result2()" value="Mul"><br><br>
+<span style="color:{{str}}">Result:{{message}}</span>
+</div>
+</body>
+</html>

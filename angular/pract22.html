@@ -1,0 +1,35 @@
+<html> 
+<head> 
+<script src="angular.min.js"></script> 
+<script> 
+var obj = angular.module ("myApp", []); 
+obj.controller ("DemoController", function ($scope) { 
+$scope.Students=[ 
+{sid: 1025, sname: "Scott", course:" AngularJS"}, 
+{sid:1026, sname: "Smith", course :"jQuery" }, 
+{sid :1027, sname: "Abrons", course: "Html"}, 
+{sid:1028, sname: 'James', course:"CSS"}, 
+{sid:1029, sname:" Adam", course: "JavaScript"} 
+]; 
+$scope.x = false; 
+$scope.y = "sid"; 
+}); 
+</script> 
+</head> 
+<body ng-app="myApp"> 
+<h1>order By filters- Demo3</h1> 
+<hr/> 
+<div ng-controller="DemoController"> 
+<table border="2" width='350px'> 
+<tr bgcolor = "SkyBlue"> 
+<th ><a href="" ng-click="x=|x";y='sid'> Student ID</a></th> 
+<th ><a href="" ng-click="x=|x";y='sname'>Student Name</a></th> 
+<th ><a href="" ng-click="x=|x";y='course'>Course Name </a></th> </tr> 
+<tr bgcolor="Pink" ng-repeat="item in Students | orderBy:y:x"> 
+<td> {{item.sid}} </td> 
+<td> {{item.sname}} </td> 
+<td> {{item.course}} </td> </tr> 
+</table> 
+</div> 
+</body> 
+</html>

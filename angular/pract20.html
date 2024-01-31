@@ -1,0 +1,26 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+<meta charset="UTF-8"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<title>Practical 22</title> 
+<script src="angular.min.js"></script> 
+<script> 
+var obj=angular.module("myApp",[]); 
+obj.controller("DemoController",function($scope) 
+{ 
+$scope.names=['scott','sleve','Mark','Ritesh','Sayali', 
+'Sathya','Abron','James','Adam']; 
+}); 
+</script> 
+</head> 
+<body ng-app="myApp"> 
+<h1> Order by Filters-demo</h1> 
+<table border="2" width="150 px" ng-controller="DemoController"> 
+    <tr ng-repeat="item in names|orderBy:item:true"> 
+        <td>{{item}}</td> 
+    </tr> 
+</table> 
+</body>
+</html>

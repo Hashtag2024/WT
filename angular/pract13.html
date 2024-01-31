@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practical 17</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script>
+    var obj=angular.module("myApp",[]);
+    obj.controller("studentcontroller",function($scope)
+    {
+    $scope.marks=[85,78,94,25,64];
+    });
+    </script>
+</head>
+<body ng-app="myApp">
+    <h1>Student Details</h1>
+    <hr>
+    <div ng-controller="studentcontroller">
+        <ul>
+            <li ng-repeat= "item in marks">
+                subject-{{$index+1}}={{item}}
+            </li>
+        </ul>
+    </div>
+</body> 
+</html>

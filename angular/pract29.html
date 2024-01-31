@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login Page</title>
+<script
+src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+<script>
+var obj=angular.module("myApp", []);
+obj.controller("Democontroller", function($scope){
+$scope.uid="";
+$scope.pwd="";
+$scope.message="";
+$scope.str="Black";
+$scope.login=function()
+{
+if ($scope.uid=="admin"&&$scope.pwd=="123")
+{
+$scope.message="Welcome to Administration";
+$scope.str="Blue";
+}
+else
+{
+$scope.message="Invalid userID or password";
+$scope.str="Dark Red";
+}
+}
+});
+</script>
+</head>
+<body ng-app="myApp">
+<h1> AngularJS login events</h1>
+<div ng-controller="Democontroller">
+Username: <input type="text" ng-model="uid"/> <br>
+Password : <input type="password" ng-model="pwd"/> <br>
+<input type="button" ng-click ="login()" value="Login"/>
+<br> </br>
+<span style="color:{{str}}"> {{message}}</span>
+</div>
+</body>
+</html>

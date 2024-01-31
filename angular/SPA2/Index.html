@@ -1,0 +1,27 @@
+<html>
+<head>
+<style>
+.contstyle {
+margin: 15px;
+padding: 15px;
+border: 2px Solid green;
+background-color: lightyellow;
+}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-route/1.8.3/angular-route.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angularresource.js"></script>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body ng-app="myApp">
+<h1>SPA with AJS Routing Demo</h1>
+<hr />
+<a href="#!/Route1"> Student Details</a>
+<a href="#!/Route2"> Course Details</a>
+<hr />
+<div class="contstyle container">
+    <ng-view></ng-view> 
+</div>
+<hr />
+</body>
+</html>
